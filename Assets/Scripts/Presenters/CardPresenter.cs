@@ -19,7 +19,7 @@ namespace Solitaire.Presenters
         [SerializeField] SpriteRenderer _back;
         [SerializeField] SpriteRenderer _front;
         [SerializeField] SpriteRenderer _type;
-        [SerializeField] SpriteRenderer _suit1;
+        [SerializeField] SpriteRenderer _type2;
         [SerializeField] SpriteRenderer _suit2;
 
         [Inject] readonly Game _game;
@@ -123,7 +123,7 @@ namespace Solitaire.Presenters
             _back.sortingOrder = sortingOrder;
             _front.sortingOrder = sortingOrder;
             _type.sortingOrder = sortingOrder + 1;
-            _suit1.sortingOrder = sortingOrder + 1;
+            _type2.sortingOrder = sortingOrder + 1;
             _suit2.sortingOrder = sortingOrder + 1;
         }
         
@@ -141,10 +141,6 @@ namespace Solitaire.Presenters
             color.a = alpha;
             _type.color = color;
 
-            color = _suit1.color;
-            color.a = alpha;
-            _suit1.color = color;
-
             color = _suit2.color;
             color.a = alpha;
             _suit2.color = color;
@@ -155,7 +151,7 @@ namespace Solitaire.Presenters
             _back.enabled = isVisible;
             _front.enabled = isVisible;
             _type.enabled = isVisible;
-            _suit1.enabled = isVisible;
+            _type2.enabled = isVisible;
             _suit2.enabled = isVisible;
         }
 
@@ -170,7 +166,6 @@ namespace Solitaire.Presenters
 
             // Update suit sprites
             Sprite spriteSuit = _config.SuitSprites[(int)_card.Suit];
-            _suit1.sprite = spriteSuit;
             _suit2.sprite = spriteSuit;
 
             // Update type color and sprite
@@ -178,6 +173,8 @@ namespace Solitaire.Presenters
             Sprite spriteType = _config.TypeSprites[(int)_card.Type];
             _type.sprite = spriteType;
             _type.color = color;
+            _type2.sprite = spriteType;
+            _type2.color = color;
         }
 
         public void Flip(bool isFaceUp)

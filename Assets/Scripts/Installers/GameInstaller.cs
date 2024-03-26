@@ -38,7 +38,6 @@ namespace Solitaire.Installers
             Container.BindInterfacesAndSelfTo<HintService>().AsSingle();
             Container.BindInterfacesAndSelfTo<OrientationService>().AsSingle();
             Container.BindInterfacesAndSelfTo<AudioService>().AsSingle();
-            Container.BindInterfacesAndSelfTo<AdService>().AsSingle();
             Container.BindInterfacesAndSelfTo<StorageService>().AsSingle();
         }
 
