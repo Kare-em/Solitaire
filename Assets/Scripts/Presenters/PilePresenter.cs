@@ -11,8 +11,6 @@ namespace Solitaire.Presenters
     {
         [SerializeField] Pile.PileType Type;
         [SerializeField] Pile.CardArrangement Arrangement;
-        [SerializeField] Vector3 PosPortrait;
-        [SerializeField] Vector3 PosLandscape;
 
         [Inject] readonly Pile _pile;
         [Inject] readonly Game _game;
@@ -61,11 +59,6 @@ namespace Solitaire.Presenters
 
         private void UpdateLayout(Orientation orientation)
         {
-            Vector3 position = orientation == Orientation.Landscape ?
-                PosLandscape : PosPortrait;
-
-            transform.position = position;
-            _pile.UpdatePosition(position);
         }
     }
 }
